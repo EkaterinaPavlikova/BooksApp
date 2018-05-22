@@ -1,0 +1,27 @@
+﻿@using System.Security.Claims
+
+@if (User.Identity.IsAuthenticated)
+{
+   
+    <form asp-controller="Account" asp-action="Logout" id="logoutForm" class="navbar-right">
+        <ul class="nav navbar-nav">
+            <li class="userLogin">
+                <a href="#">Привет, @User.Identity.Name! </a>
+            </li>
+            <li>
+                <button type="submit" class="btn btn-link navbar-btn navbar-link">Выйти</button>
+            </li>
+            @if (User.IsInRole("User") || User.IsInRole("Admin"))
+            {
+                <li>@await Component.InvokeAsync("CartSummary")</li>
+            }
+        </ul>
+    </form>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right menu-items">
+        <li><a asp-area="" asp-controller="Account" asp-action="Register"> Регистрация </a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="Login"> Вход </a></li>
+    </ul>
+}

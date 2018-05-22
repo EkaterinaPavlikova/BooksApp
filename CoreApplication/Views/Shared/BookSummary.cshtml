@@ -1,0 +1,28 @@
+﻿@model CoreApplication.Models.Book
+<div class="card card-outline-primary m-1 p-1">
+    <div class="bg-faded p-1">
+        <h4>
+            @Model.Title
+
+        </h4>
+        <small>@Model.Year г.</small>
+    </div>
+  
+    <form id="@Model.Id" asp-action="AddToCart"
+          asp-controller="Cart" method="post">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" name="returnUrl"
+               value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="card-text p-1">
+            Автор: <strong> @(Model.Author != null ? Model.Author.Name : "")</strong>
+            Жанр: <strong> @(Model.Genre != null ? Model.Genre.GenreName : "")</strong>
+                  
+            <button type="submit"
+                    class="btn btn-success btn-sm pull-right"
+                    style="float:right">
+                Добавить к выбранным
+            </button>
+        </span>
+    </form>
+
+</div>

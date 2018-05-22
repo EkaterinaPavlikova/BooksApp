@@ -1,0 +1,50 @@
+﻿@model CoreApplication.Models.ViewModels.UserPageViewModel
+
+<div class="container user-blocks">
+    
+    <div class="orders-block">
+        <h2>Мои книги</h2>
+        @foreach (var order in Model.UserOrders)
+             {
+                @Html.Partial("UsersBooks", order)
+             }
+    </div>
+    <div class="onprosess-block">
+        <h2>Книги на подтверждении</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Книга</th>
+                    <th>Автор</th>
+                    <th>Год</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.OrdersOnProsessing)
+            {
+                <tr>
+                    <td>@order.Book.Title</td>
+                    <td>@(order.Book.Author != null ? order.Book.Author.Name : "")</td>
+                    <td>@(order.Book.Year)</td>
+                    <td>
+                        @if (order.Status == BookStatus.Processing)
+                    {<p>Ожидается подтверждения</p> }
+                else
+                {<p>Возврат</p>}
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+        @if (TempData["message"] != null && TempData["message"].ToString() != String.Empty)
+    {
+            <div class="alert alert-danger">
+                @TempData["message"]
+        </div>
+        }
+        <div>
+        </div>
+    </div>
+</div>
+

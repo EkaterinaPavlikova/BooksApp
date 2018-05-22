@@ -1,0 +1,12 @@
+﻿
+@model IEnumerable<RoleAccessViewModel>
+
+
+<ul class="nav navbar-nav menu-items">
+    @foreach (var roleAccess in Model)
+    {        
+            <li><a asp-controller=@roleAccess.ControllerName asp-action=@roleAccess.ActionName>@roleAccess.Title</a></li>             
+    }
+</ul>
+
+

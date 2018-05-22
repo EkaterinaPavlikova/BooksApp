@@ -1,0 +1,20 @@
+﻿@using System.Security.Claims
+
+@if (User.Identity.IsAuthenticated)
+{
+    <ul class="nav navbar-nav menu-items">
+        @if (User.IsInRole("User"))
+        {
+            <li><a  asp-controller="Book" asp-action="BooksList">Библиотека</a></li>
+            <li><a  asp-controller="Order" asp-action="UserOrderList">Мои книги</a></li>
+        }
+        else
+         if (User.IsInRole("Admin"))
+        {
+            <li><a  asp-controller="Book" asp-action="BooksList">Библиотека</a></li>
+            <li><a  asp-controller="Order" asp-action="UserOrderList">Мои книги</a></li>
+            <li><a  asp-controller="Book" asp-action="BooksEditPage">Редактирование</a></li>
+            <li><a  asp-controller="Order" asp-action="LibrarianList">Прием/Выдача</a></li>
+        }
+    </ul>  
+}

@@ -1,0 +1,41 @@
+﻿
+@model CoreApplication.Models.ViewModels.BookViewModel
+
+<h2>Редактирование</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Book.Id" class="form-control" />
+
+            <div class="form-group">
+                <label text="Название" class="control-label"></label>
+                <input asp-for="Book.Title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label text="Год" class="control-label"></label>
+                <input asp-for="Book.Year" class="form-control" />
+                <span asp-validation-for="Book.Year" class="text-danger" />
+            </div>
+            <div class="form-group">
+                <label text="Автор" class="control-label"></label>
+                @Html.DropDownListFor(b=> b.Book.AuthorId, new SelectList(Model.Authors, "Id", "Name", "Model.Book.AuthorId"), new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <label text="Жанр" class="control-label"></label>
+                @Html.DropDownListFor(b => b.Book.GenreId, new SelectList(Model.Genres, "Id", "GenreName", "Model.Book.GenreId"), new { @class = "form-control" })
+               
+            </div>
+            <div class="form-group">
+                <label text="Количество" class="control-label"></label>
+                <input asp-for="Book.Count" class="form-control" />
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <a asp-action="BooksEditPage" class="btn btn-secondary">Назад</a>
+            </div>
+        </form>
+    </div>
+</div>
+

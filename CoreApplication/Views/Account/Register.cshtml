@@ -1,0 +1,26 @@
+﻿@model CoreApplication.Models.ViewModels.RegisterModel
+
+
+<div class="container login-form">
+
+    <h2>Регистрация</h2>
+    <form method="post" asp-action="Register" asp-controller="Account">
+        @*<div aclass="validation" asp-validation-summary="ModelOnly" />*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div>
+            <div class="form-group">
+                <label asp-for="Login">Логин:</label><br />
+                <input type="text" asp-for="Login" class="form-control" />
+                <span asp-validation-for="Login" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Пароль:</label><br />
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Регистрация" class="btn" />
+            </div>
+        </div>
+    </form>
+</div>

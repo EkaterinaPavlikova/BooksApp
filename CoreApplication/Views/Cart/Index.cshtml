@@ -1,0 +1,43 @@
+﻿@model CartIndexViewModel
+
+<h2>Книги в корзине</h2>
+<table class="table table-bordered table-striped"> 
+    <thead>
+        <tr>
+            <th>Книга</th>
+            <th>Количество</th>
+            <th>Действие</th>           
+        </tr>   
+      </thead>    
+    <tbody>
+        @foreach (var line in Model.Cart.Line){
+        <tr>
+            <td class="text-left">@line.Book.Title</td>
+            <td class="text-center">@line.Quantity</td>
+            <td>
+                <div class="btn-group">
+                    <form asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="Id" value="@line.Book.Id" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Удалить
+                        </button>
+                    </form>
+
+                </div>
+            </td>
+        </tr>
+          }
+    </tbody> 
+    <tfoot>  
+    <tr>          
+        <td colspan="1">Total:</td> 
+        <td class="text-center">@Model.Cart.ComputeTotalNumber()</td>      
+    </tr>  
+    </tfoot> 
+</table>
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Назад</a>
+    <a class="btn btn-primary"  href="/Order/AddAllBooksToOrder">Взять все</a>
+</div>
+ 

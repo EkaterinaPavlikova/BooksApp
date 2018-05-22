@@ -1,0 +1,79 @@
+﻿.user-blocks div {
+    display:inline-block;
+    vertical-align:top;
+    margin-top: 2%;
+
+}
+.orders-block {
+    width: 60%;
+    
+}
+
+.login-form {
+    width: 30%
+}
+.header {
+    text-align: center;
+    margin: 2%;
+}
+.menu-items li {
+    margin-left: 10px
+}
+.userLogin {
+    padding-top: 7px
+}
+.onprosess-block {
+    width: 35%;
+}
+
+body {
+    margin: 0;
+}
+.navbar-nav {
+    flex-direction:row;
+}
+#bookList {
+    position: relative;
+    width: 360px;
+    margin: 0 auto;
+}
+
+.search-field {
+    background: #b1e1ed;
+    padding: 30px 0
+}
+
+ .search-field input {
+        width: 100%;
+        height: 42px;
+        padding-left: 10px;
+        border: 2px solid #73b8c4;
+        border-radius: 5px;
+        outline: none;
+        background: #e8f8fc;
+        color: #9E9C9C;
+    }
+
+  .search-field button {
+        position: absolute;
+        top: 0;
+        right: 0px;
+        width: 42px;
+        height: 42px;
+        border: none;
+        background: #73b8c4;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+
+ .search-field button:before {
+            font-size: 16px;
+            color: #F9F0DA;
+        }
+
+.error {
+    color: cornflowerblue;
+    font-size: 30px;
+    text-align: center;
+    margin: 10%
+}

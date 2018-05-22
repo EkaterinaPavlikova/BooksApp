@@ -1,0 +1,39 @@
+﻿@model IEnumerable<CoreApplication.Models.Order>
+<table class="table table-hover table-condensed ">
+    <thead>
+        <tr>
+            <th>Книга</th>
+            <th>Автор</th>
+            <th>Год</th>
+            <th>Действие</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+        <tr>
+            <td>@order.Book.Title</td>
+            <td>@(order.Book.Author != null ? order.Book.Author.Name : "")</td>
+            <td>@(order.Book.Year)</td> 
+            <td>
+                <form id="orderList" asp-controller="Order" method="post">                    
+                    <input type="hidden" name="orderId" value="@order.OrderId" />
+                    <input type="hidden" name="bookId" value="@order.BookId" />
+                    @if (order.Status == BookStatus.Processing)
+    {
+                <div class="btn-group">
+                    <button class="btn btn-sm btn-success" asp-action="GiveBook" type="submit">Выдать</button>
+                    <button class="btn btn-sm btn-danger" asp-action="TakeOrRefuseBook" type="submit">Отказ</button>
+                </div>
+}
+else
+if (order.Status == BookStatus.OnReturn)
+{
+                <button class="btn btn-sm btn-success" type="submit" asp-action="TakeOrRefuseBook">Принять</button>
+}
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

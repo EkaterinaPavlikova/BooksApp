@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<Genre>
+
+<a class="btn btn-block btn-secondary"
+   asp-action="BooksList"
+   asp-controller="Book"
+   asp-route-genre="">
+   Все жанры
+</a>
+
+@foreach (var genre in Model)
+{
+    <a class='btn btn-block @(genre.Id.ToString().Equals(ViewBag.SelectedGenre) ? "btn-primary": "btn-secondary") '
+        asp-action="BooksList" 
+        asp-controller="Book" 
+        asp-route-genre="@genre.Id" 
+        asp-route-Page="1">        
+        @genre.GenreName    
+    </a>
+}
+
+
+

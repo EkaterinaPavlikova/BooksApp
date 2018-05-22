@@ -1,0 +1,11 @@
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\bin\Debug\netcoreapp2.0\CoreApplication.deps.json
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\bin\Debug\netcoreapp2.0\CoreApplication.runtimeconfig.json
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\bin\Debug\netcoreapp2.0\CoreApplication.runtimeconfig.dev.json
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\bin\Debug\netcoreapp2.0\CoreApplication.dll
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\bin\Debug\netcoreapp2.0\CoreApplication.pdb
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\obj\Debug\netcoreapp2.0\CoreApplication.csprojResolveAssemblyReference.cache
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\obj\Debug\netcoreapp2.0\CoreApplication.csproj.CoreCompileInputs.cache
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\obj\Debug\netcoreapp2.0\CoreApplication.AssemblyInfoInputs.cache
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\obj\Debug\netcoreapp2.0\CoreApplication.AssemblyInfo.cs
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\obj\Debug\netcoreapp2.0\CoreApplication.dll
+C:\Users\e.pavlikova\source\repos\CoreApplication\CoreApplication\obj\Debug\netcoreapp2.0\CoreApplication.pdb

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CoreApplication.Models.Order>
+
+<div class="container user-blocks">
+
+    <div class="orders-block">
+        <h2>Выдача книг</h2>        
+        @Html.Partial("LibrarianTable", @Model.Where(m=>m.Status==BookStatus.Processing))
+    </div>
+    <div class="onprosess-block">
+        <h2>Прием книг</h2>
+        @Html.Partial("LibrarianTable", @Model.Where(m=>m.Status==BookStatus.OnReturn))
+    </div> 
+ </div>

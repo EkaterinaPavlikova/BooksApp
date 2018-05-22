@@ -1,0 +1,48 @@
+﻿
+@model CoreApplication.Models.ViewModels.BooksListViewModel
+@{
+    ViewData["Title"] = "Library";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+   
+    <div class="header">
+        <h3>Библиотека</h3>
+    </div>
+
+
+    <div class="row m-1 p-1">      
+        <div id="genres" class="col-sm-3">
+            @await Component.InvokeAsync("NavigationMenu")
+        </div>
+
+        <div class="container body-content col-9">
+            <div class="search-field">
+                <form id="bookList" method="get" asp-action="BooksList"  asp-route-Page="1"
+                      asp-controller="Book"> 
+                    <input type="search" name="searchString" placeholder="Искать здесь..." value="@Model.SearchingString">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+
+
+            @foreach (var book in Model.Books)
+        {
+            @Html.Partial("BookSummary", book)
+
+    }
+
+            <div page-model="@Model.PagingInfo" page-action="BooksList" page-classes-enabled="true"
+                 page-class="btn" page-class-normal="btn-secondary"
+                 page-class-selected="btn-primary"
+                 page-url-genre="@Model.CurrentGenreId"
+                 page-url-searchString="@Model.SearchingString"
+                 page-param="Page"
+                 class="btn-group pull-right m-1">
+
+            </div>
+        </div>
+    </div>
+</div>
